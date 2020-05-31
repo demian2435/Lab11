@@ -1,25 +1,20 @@
 package it.polito.tdp.rivers.model;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
 
 public class River {
 	private int id;
 	private String name;
-	private double flowAvg;
+	private LocalDate firstDate;
+	private LocalDate lastDate;
+	private int totalMeasure;
+	private float medianMeasure;
 	private List<Flow> flows;
-	
-	public River(int id) {
-		this.id = id;
-	}
 
 	public River(int id, String name) {
 		this.id = id;
 		this.name = name;
-	}
-
-	public String getName() {
-		return name;
 	}
 
 	public int getId() {
@@ -30,31 +25,61 @@ public class River {
 		this.id = id;
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public double getFlowAvg() {
-		return flowAvg;
+
+	public LocalDate getFirstDate() {
+		return firstDate;
 	}
 
-	public void setFlowAvg(double flowAvg) {
-		this.flowAvg = flowAvg;
+	public void setFirstDate(LocalDate firstDate) {
+		this.firstDate = firstDate;
+	}
+
+	public LocalDate getLastDate() {
+		return lastDate;
+	}
+
+	public void setLastDate(LocalDate lastDate) {
+		this.lastDate = lastDate;
+	}
+
+	public int getTotalMeasure() {
+		return totalMeasure;
+	}
+
+	public void setTotalMeasure(int totalMeasure) {
+		this.totalMeasure = totalMeasure;
+	}
+
+	public float getMedianMeasure() {
+		return medianMeasure;
+	}
+
+	public void setMedianMeasure(float medianMeasure) {
+		this.medianMeasure = medianMeasure;
+	}
+
+	public List<Flow> getFlows() {
+		return flows;
 	}
 
 	public void setFlows(List<Flow> flows) {
 		this.flows = flows;
 	}
 
-	public List<Flow> getFlows() {
-		if (flows == null)
-			flows = new ArrayList<Flow>();
-		return flows;
-	}
-
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	public String toStringLong() {
+		return name + " - tm: " + totalMeasure + " - mm: " + medianMeasure;
 	}
 
 	@Override
